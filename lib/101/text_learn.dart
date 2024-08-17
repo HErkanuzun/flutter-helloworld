@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 
 class TextLearnView extends StatelessWidget{
-  const TextLearnView({Key? key, this.userName}) : super(key: key);
+  TextLearnView({Key? key, this.userName}) : super(key: key);
   final String name = 'Veli';
   final String? userName;
+  final ProjectKeys keys = ProjectKeys();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,11 +45,18 @@ class TextLearnView extends StatelessWidget{
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headlineLarge?.copyWith(color:Colors.red),
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(color:ProjectColors.welcomeColor),
 
           ),
           Text(userName ?? ''),
+          
+          Text(keys.welcome),
+
+
+
+
           ],
+          
         )),
     );
   }
@@ -62,4 +71,13 @@ class ProjectStyles {
             fontStyle: FontStyle.italic,
             color: Colors.red
   );
+}
+
+
+class ProjectColors {
+ static Color welcomeColor = Colors.yellow;
+}
+
+class ProjectKeys {
+  final String welcome = "Merhaba";
 }
